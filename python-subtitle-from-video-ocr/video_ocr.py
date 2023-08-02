@@ -54,8 +54,9 @@ while video.isOpened():
             cv2.imwrite(image_name, frame)
             result = ocr_output(image_name)
             if (result != None) :
-                print(image_name + " is: " + remove_special_chars(result[-1][0]) + " confidence level is: " + str(result[-1][1]))
-
+                current_subtitle_text =  remove_special_chars(result[0])
+                accuracy = str(result[1])
+                print(image_name + " is: " + current_subtitle_text + " confidence level is: " + accuracy)
             else:
                 print("nothing in frame")
     else:
